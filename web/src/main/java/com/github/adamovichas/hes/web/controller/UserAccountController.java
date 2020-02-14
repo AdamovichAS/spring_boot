@@ -10,9 +10,16 @@ import javax.servlet.http.HttpServletRequest;
 @Controller
 @RequestMapping(value = "/user")
 public class UserAccountController {
+
     @GetMapping(value = "")
     public ModelAndView getUsers(HttpServletRequest req){
         final ModelAndView modelAndView = new ModelAndView("main");
+        String currentPage = req.getParameter("currentPage");
+        int numberPage;
+        if(currentPage == null){
+            numberPage = 1;
+        }
+        numberPage = Integer.parseInt(currentPage);
         return modelAndView;
     }
 }

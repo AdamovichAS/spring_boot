@@ -2,12 +2,18 @@ package com.github.adamovichas.hes.web.config;
 
 import com.github.adamovichas.hes.service.configuration.ServiceConfig;
 import com.github.adamovichas.hes.web.controller.UserAccountController;
+import com.github.adamovichas.hes.web.controller.authentification.LoginController;
+import com.github.adamovichas.hes.web.controller.authentification.LogoutController;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.support.ReloadableResourceBundleMessageSource;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+import org.springframework.web.servlet.i18n.CookieLocaleResolver;
 import org.springframework.web.servlet.view.UrlBasedViewResolver;
 import org.springframework.web.servlet.view.tiles3.TilesConfigurer;
 import org.springframework.web.servlet.view.tiles3.TilesView;
+
+import java.util.Locale;
 
 
 @Configuration
@@ -35,7 +41,34 @@ public class WebConfig {
     }
 
     @Bean
+    public ReloadableResourceBundleMessageSource messageSource() {
+        ReloadableResourceBundleMessageSource source = new ReloadableResourceBundleMessageSource();
+        source.setBasenames("classpath:/interface","classpath:/messages");
+        source.setDefaultEncoding("UTF-8");
+        return source;
+    }
+
+    @Bean
+    public CookieLocaleResolver localeResolver() {
+        CookieLocaleResolver resolver = new CookieLocaleResolver();
+        resolver.setDefaultLocale(Locale.forLanguageTag("en_US"));
+        resolver.setCookieName("LocaleCookie");
+        resolver.setCookieMaxAge(3600);
+        return resolver;
+    }
+
+    @Bean
     public UserAccountController userAccountController(){
         return new UserAccountController();
+    }
+
+    @Bean
+    public LoginController loginController(){
+        return new LoginController(serviceConfig.userAccountService());
+    }
+
+    @Bean
+    public LogoutController logoutController() {
+        return new LogoutController();
     }
 }

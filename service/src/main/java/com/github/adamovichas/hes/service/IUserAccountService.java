@@ -1,4 +1,7 @@
 package com.github.adamovichas.hes.service;
 
-public class IUserAccountService {
+import com.github.adamovichas.hes.model.AuthUserDto;
+
+public interface IUserAccountService {
+    AuthUserDto loginAuthUser(AuthUserDto user);
 }

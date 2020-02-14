@@ -8,6 +8,11 @@ public class AuthUserDto {
     private Role role;
     private Status status;
 
+    public AuthUserDto(String userName, String password) {
+        this.userName = userName;
+        this.password = password;
+    }
+
     public Long getId() {
         return id;
     }
@@ -46,5 +51,9 @@ public class AuthUserDto {
 
     public void setStatus(Status status) {
         this.status = status;
+    }
+
+    public boolean isActive(){
+        return status.equals(Status.ACTIVE);
     }
 }

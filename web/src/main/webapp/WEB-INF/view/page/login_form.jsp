@@ -15,13 +15,16 @@
         <legend><spring:message code="form.login"/></legend>
 
         <label for="login"><strong><spring:message code="login"/></strong></label>
-        <input id="login" type="text" name="login" required>
+        <input id="login" type="text" name="login" required><br>
 
         <label for="password"><strong><spring:message code="password"/></strong></label>
-        <input id="password" type="password" name="password" required>
-        <input type="submit" value="<spring:message code="submit"/>"/>
+        <input id="password" type="password" name="password" required><br>
+        <input type="submit" value="<spring:message code="submit"/>"/><br>
     </fieldset>
 </form>
+<c:if test="${message ne null}">
+    <c:out value="${message}"/>
+</c:if>
 
 </body>
 </html>
