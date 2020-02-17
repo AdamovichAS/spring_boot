@@ -2,7 +2,7 @@ package com.github.adamovichas.hes.dao.config;
 
 import com.github.adamovichas.hes.dao.IUserAccountDao;
 import com.github.adamovichas.hes.dao.impl.UserAccountDao;
-import com.github.adamovichas.hes.dao.repository.AuthUserRepository;
+import com.github.adamovichas.hes.dao.repository.UserAccountRepository;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -14,9 +14,9 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 public class DaoConfig {
 
 
-    private final AuthUserRepository userAccountRepository;
+    private final UserAccountRepository userAccountRepository;
 
-    public DaoConfig(AuthUserRepository userAccountRepository) {
+    public DaoConfig(UserAccountRepository userAccountRepository) {
         this.userAccountRepository = userAccountRepository;
     }
 

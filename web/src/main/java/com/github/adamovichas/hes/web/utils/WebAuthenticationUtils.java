@@ -14,28 +14,28 @@ public abstract class WebAuthenticationUtils {
     private WebAuthenticationUtils() {
     }
 
-    public static AuthUserDto getPrincipalUserInSession() {
-        final Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        if (authentication == null || authentication.getPrincipal().equals("anonymousUser")) {
-            return null;
-        }
-        return (AuthUserDto) authentication.getPrincipal();
-    }
-
-    public static void setUserInSession(AuthUserDto principal) {
-        final Authentication authentication = new UsernamePasswordAuthenticationToken
-                (principal, null, getAuthorities(principal.getRole()));
-        SecurityContextHolder.getContext().setAuthentication(authentication);
-    }
-
-    private static List<GrantedAuthority> getAuthorities(Role role) {
-        switch (role) {
-            case USER:
-                return Collections.singletonList((GrantedAuthority) () -> "ROLE_USER");
-            case ADMIN:
-                return Collections.singletonList((GrantedAuthority) () -> "ROLE_ADMIN");
-            default:
-                throw new RuntimeException("Wrong role");
-        }
-    }
+//    public static AuthUserDto getPrincipalUserInSession() {
+//        final Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+//        if (authentication == null || authentication.getPrincipal().equals("anonymousUser")) {
+//            return null;
+//        }
+//        return (AuthUserDto) authentication.getPrincipal();
+//    }
+//
+//    public static void setUserInSession(AuthUserDto principal) {
+//        final Authentication authentication = new UsernamePasswordAuthenticationToken
+//                (principal, null, getAuthorities(principal.getRole()));
+//        SecurityContextHolder.getContext().setAuthentication(authentication);
+//    }
+//
+//    private static List<GrantedAuthority> getAuthorities(Role role) {
+//        switch (role) {
+//            case USER:
+//                return Collections.singletonList((GrantedAuthority) () -> "ROLE_USER");
+//            case ADMIN:
+//                return Collections.singletonList((GrantedAuthority) () -> "ROLE_ADMIN");
+//            default:
+//                throw new RuntimeException("Wrong role");
+//        }
+//    }
 }

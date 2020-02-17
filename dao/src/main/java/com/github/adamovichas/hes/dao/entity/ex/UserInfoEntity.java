@@ -1,4 +1,4 @@
-package com.github.adamovichas.hes.dao.entity;
+package com.github.adamovichas.hes.dao.entity.ex;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;

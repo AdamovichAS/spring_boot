@@ -9,7 +9,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
-<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags"%>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <html>
 <head>
     <title>Title</title>
@@ -17,14 +17,20 @@
 <body>
 <div>
     <table class="table table-striped table-bordered table-sm">
-        <H3><spring:message code="users"/> </H3>
+        <H3><spring:message code="users"/></H3>
         <tr>
-            <th><spring:message code="user.name"/> </th>
+            <th><spring:message code="user.name"/></th>
         </tr>
 
         <c:forEach items="${page.views}" var="user">
             <tr>
-                <td>${user.getUserName()}</td>
+                    <%--                <td>${user.getUserName()}</td>--%>
+                <td>
+                    <a href="${pageContext.request.contextPath}/user/${user.id}">${user.userName}</a><br>
+                </td>
+                    <%--                <c:if test="${id eq user.id}">--%>
+                    <%--                    <jsp:include page="user_view.jsp"/>--%>
+                    <%--                </c:if>--%>
             </tr>
         </c:forEach>
     </table>
@@ -45,7 +51,7 @@
             <c:choose>
                 <c:when test="${page.currentPage == item}">
                     <li class="page-item active" aria-current="page">
-                        <a class="page-link" >${item}<span class="sr-only">(current)</span></a>
+                        <a class="page-link">${item}<span class="sr-only">(current)</span></a>
                     </li>
                 </c:when>
                 <c:otherwise>

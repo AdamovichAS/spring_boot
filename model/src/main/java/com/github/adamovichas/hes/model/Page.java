@@ -10,6 +10,13 @@ public class Page<T> {
     private String exception;
     private List<T> views;
 
+    public Page(int pageSize, int currentPage, Long maxPages, List<T> views) {
+        this.pageSize = pageSize;
+        this.currentPage = currentPage;
+        this.maxPages = maxPages;
+        this.views = views;
+    }
+
     public int getPageSize() {
         return pageSize;
     }

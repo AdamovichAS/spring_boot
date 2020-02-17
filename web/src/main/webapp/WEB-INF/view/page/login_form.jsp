@@ -10,20 +10,20 @@
 </head>
 <body>
 
-<form action="${pageContext.request.contextPath}/login" method="POST">
+<form action="${pageContext.request.contextPath}/login" method="POST" class="form-signin">
     <fieldset>
         <legend><spring:message code="form.login"/></legend>
 
-        <label for="login"><strong><spring:message code="login"/></strong></label>
-        <input id="login" type="text" name="login" required><br>
+        <label for="user_name"><strong><spring:message code="user.name"/></strong></label>
+        <input id="user_name" type="text" name="user_name" required class="form-control"><br>
 
         <label for="password"><strong><spring:message code="password"/></strong></label>
-        <input id="password" type="password" name="password" required><br>
+        <input id="password" type="password" name="password" required class="form-control"><br>
         <input type="submit" value="<spring:message code="submit"/>"/><br>
     </fieldset>
 </form>
-<c:if test="${message ne null}">
-    <c:out value="${message}"/>
+<c:if test="${error eq true}">
+    <spring:message code="wrong.login"/>
 </c:if>
 
 </body>

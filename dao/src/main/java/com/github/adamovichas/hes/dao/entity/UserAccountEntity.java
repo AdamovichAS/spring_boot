@@ -4,17 +4,20 @@ import com.github.adamovichas.hes.model.Role;
 import com.github.adamovichas.hes.model.Status;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "auth_user")
-public class AuthUserEntity {
+@Table(name = "user_account")
+public class UserAccountEntity {
+
     private Long id;
     private String userName;
     private String password;
+    private String firstName;
+    private String lastName;
+    private LocalDateTime createdAt;
     private Role role;
     private Status status;
-    private UserInfoEntity userInfo;
-
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -45,6 +48,33 @@ public class AuthUserEntity {
         this.password = password;
     }
 
+    @Column(name = "first_name",nullable = false)
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    @Column(name = "last_name", nullable = false)
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    @Column(name = "created_at", nullable = false)
+    public LocalDateTime getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(LocalDateTime createdAt) {
+        this.createdAt = createdAt;
+    }
+
     @Column(name = "role", nullable = false)
     @Enumerated(EnumType.STRING)
     public Role getRole() {
@@ -63,14 +93,5 @@ public class AuthUserEntity {
 
     public void setStatus(Status status) {
         this.status = status;
-    }
-
-    @OneToOne(mappedBy = "authUser",fetch = FetchType.EAGER)
-    public UserInfoEntity getUserInfo() {
-        return userInfo;
-    }
-
-    public void setUserInfo(UserInfoEntity userInfo) {
-        this.userInfo = userInfo;
     }
 }
