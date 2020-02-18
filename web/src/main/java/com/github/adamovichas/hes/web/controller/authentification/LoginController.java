@@ -28,34 +28,11 @@ public class LoginController {
         return "redirect:/user/";
     }
 
-//    @GetMapping(value = "/error")
-//    public ModelAndView loginError(){
-//        final ModelAndView modelAndView = new ModelAndView("login_form");
-//        modelAndView.addObject("message","Wrong login");
-//        return modelAndView;
-//    }
-
-//    @PostMapping
-//    public String loginPostMethod(@RequestParam(value = "login") String login,
-//                                  @RequestParam(value = "password") String password,
-//                                  ModelMap modelMap) {
-//        AuthUserDto userFromDB = userAccountService.loginAuthUser(new AuthUserDto(login, password));
-//        if (userFromDB == null) {
-//            modelMap.addAttribute("message", "wrong.logpass");
-//            log.info("Invalid login or password enter for user: {} at: {}", login, LocalDateTime.now());
-//            return "login_form";
-//        }
-//
-//        if (!userFromDB.isActive()) {
-//            modelMap.addAttribute("message", "inactive");
-//            log.info("Inactive user: {} tried to login at: {}", login, LocalDateTime.now());
-//            return "login_form";
-//        }
-//
-//        WebAuthenticationUtils.setUserInSession(userFromDB);
-//        log.info("User: {} logged in at: {}", login, LocalDateTime.now());
-//        return "redirect:/user/";
-//    }
-
+    @GetMapping(value = "/login_error")
+    public ModelAndView loginErrorMethod() {
+        final ModelAndView modelAndView = new ModelAndView("login_form");
+        modelAndView.addObject("error", true);
+        return modelAndView;
+    }
 
 }

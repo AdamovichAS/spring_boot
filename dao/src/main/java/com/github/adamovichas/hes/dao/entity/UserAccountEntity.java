@@ -5,6 +5,7 @@ import com.github.adamovichas.hes.model.Status;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.Objects;
 
 @Entity
 @Table(name = "user_account")
@@ -94,4 +95,5 @@ public class UserAccountEntity {
     public void setStatus(Status status) {
         this.status = status;
     }
+    
 }

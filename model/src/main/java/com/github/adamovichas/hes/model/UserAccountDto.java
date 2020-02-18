@@ -1,6 +1,5 @@
 package com.github.adamovichas.hes.model;
 
-import org.springframework.beans.factory.annotation.Value;
 
 import javax.validation.constraints.Pattern;
 import java.time.LocalDateTime;
@@ -14,6 +13,7 @@ public class UserAccountDto {
             message = "Only latin characters and numbers.\n" +
             "At least one character;\n" +
             "At least one digit.")
+//    @Null
     private String password;
     @Pattern(regexp = "^[A-Za-z]{1,16}$", message = "User first name must consist of latin letters and be less than 16 characters long")
     private String firstName;
@@ -44,7 +44,11 @@ public class UserAccountDto {
     }
 
     public void setPassword(String password) {
-        this.password = password;
+        if(!password.equals("")) {
+            this.password = password;
+        }else {
+            this.password = null;
+        }
     }
 
     public String getFirstName() {

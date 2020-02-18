@@ -6,7 +6,7 @@ import com.github.adamovichas.hes.model.UserAccountDto;
 import java.util.List;
 
 public interface IUserAccountDao {
-    AuthUserDto getByUserName(String userMame);
+    AuthUserDto findByUserName(String userMame);
     List<UserAccountDto> getUserAccountViewsOnPag(int currentPage, int pageSize);
     Long getCountUserAccounts();
     UserAccountDto getUserAccountDtoById(Long id);

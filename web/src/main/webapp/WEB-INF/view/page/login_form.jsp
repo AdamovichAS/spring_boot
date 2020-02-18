@@ -22,8 +22,9 @@
         <input type="submit" value="<spring:message code="submit"/>"/><br>
     </fieldset>
 </form>
-<c:if test="${error eq true}">
-    <spring:message code="wrong.login"/>
+<c:if test="${error ne null}">
+    <spring:message code="login.error"/> <br>
+    Reason ${sessionScope["SPRING_SECURITY_LAST_EXCEPTION"].message}
 </c:if>
 
 </body>

@@ -56,4 +56,6 @@ public class AuthUserDto {
     public boolean isActive(){
         return status.equals(Status.ACTIVE);
     }
+
+
 }

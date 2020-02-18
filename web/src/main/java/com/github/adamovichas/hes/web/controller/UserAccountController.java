@@ -62,7 +62,6 @@ public class UserAccountController {
             modelAndView.addObject("message", errorMessage);
             return modelAndView;
         }
-//       final UserAccountDto userAccountDto = UserAccountRequestDtoConverter.getDto(userAccountDto1);
         final String message = userAccountService.addUserAccount(userAccountDto);
         modelAndView.addObject("message",message);
         return modelAndView;
@@ -87,7 +86,6 @@ public class UserAccountController {
             redirectModelMap.addFlashAttribute("message", errorMessage);
             return "redirect:/user/" + id + "/edit";
         }
-//        final UserAccountDto userAccountDto = UserAccountRequestDtoConverter.getDto(userAccountRequest);
         final String message = userAccountService.editUserAccount(userAccountDto);
         redirectModelMap.addFlashAttribute("message",message);
         return "redirect:/user/" + id + "/edit";

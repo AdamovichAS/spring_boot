@@ -15,14 +15,14 @@
 </head>
 <body>
 <form action="${pageContext.request.contextPath}/user/new" method="POST">
-    <label><spring:message code="user.name"/> </label>
-    <input type="text" required placeholder="User name" name="userName"><br>
-    <label><spring:message code="password"/> </label>
-    <input type="text" required placeholder="Password" name="password"><br>
-    <label><spring:message code="user.first.name"/> </label>
-    <input type="text" required placeholder="First name" name="firstName"><br>
-    <label><spring:message code="user.last.name"/> </label>
-    <input type="text" required placeholder="Last name" name="lastName"><br>
+
+    <input type="text" required placeholder="<spring:message code="user.name"/>" name="userName"class="form-control"><br>
+
+    <input type="text" required placeholder="<spring:message code="password"/>" name="password"class="form-control"><br>
+
+    <input type="text" required placeholder="<spring:message code="user.first.name"/>" name="firstName"class="form-control"><br>
+
+    <input type="text" required placeholder="<spring:message code="user.last.name"/>" name="lastName"class="form-control"><br>
     <label><spring:message code="user.role"/> </label>
     <select name="role">
         <option value="ADMIN"><spring:message code="role.admin"/> </option>

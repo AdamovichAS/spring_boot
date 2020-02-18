@@ -3,13 +3,10 @@ package com.github.adamovichas.hes.web.config;
 import com.github.adamovichas.hes.service.configuration.ServiceConfig;
 import com.github.adamovichas.hes.web.controller.UserAccountController;
 import com.github.adamovichas.hes.web.controller.authentification.LoginController;
-import com.github.adamovichas.hes.web.controller.authentification.LogoutController;
-import com.github.adamovichas.hes.web.service.MyUserDetailService;
+import com.github.adamovichas.hes.web.controller.authentification.service.MyUserDetailService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.support.ReloadableResourceBundleMessageSource;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.i18n.CookieLocaleResolver;
 import org.springframework.web.servlet.view.UrlBasedViewResolver;
@@ -76,8 +73,4 @@ public class WebConfig {
         return new LoginController(serviceConfig.userAccountService());
     }
 
-    @Bean
-    public LogoutController logoutController() {
-        return new LogoutController();
-    }
 }

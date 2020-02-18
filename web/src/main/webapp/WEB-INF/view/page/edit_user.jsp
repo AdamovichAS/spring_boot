@@ -9,20 +9,22 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <html>
 <head>
     <title>Title</title>
 </head>
 <body>
-<form action="${pageContext.request.contextPath}/user/${user.id}/edit" method="POST">
+<form action="${pageContext.request.contextPath}/user/${user.id}/edit" method="POST" >
     <label><spring:message code="user.name"/> </label>
-    <input type="text" required value="${user.userName}" name="userName"><br>
+    <input type="text" required value="${user.userName}" name="userName" class="form-control"><br>
+
     <label><spring:message code="password"/> </label>
-    <input type="text" required value="${user.password}" name="password"><br>
+    <input type="text" placeholder="<spring:message code="password.new"/>" name="password" class="form-control"><br>
     <label><spring:message code="user.first.name"/> </label>
-    <input type="text" required value="${user.firstName}" name="firstName"><br>
+    <input type="text" required value="${user.firstName}" name="firstName" class="form-control"><br>
     <label><spring:message code="user.last.name"/> </label>
-    <input type="text" required value="${user.lastName}" name="lastName"><br>
+    <input type="text" required value="${user.lastName}" name="lastName" class="form-control"><br>
     <label><spring:message code="user.role"/> </label>
     <select name="role">
         <option value="ADMIN"><spring:message code="role.admin"/> </option>
@@ -35,6 +37,7 @@
     </select><br>
     <input type="submit" name="submit" value=<spring:message code="edit.user"/> />
 </form>
+
 
 <c:if test="${message ne null}">
     <c:out value="${message}"/>
