@@ -11,6 +11,7 @@
 
     <sec:authorize access="!isAuthenticated()">
         <a href="${pageContext.request.contextPath}/login"><spring:message code="form.login"/></a>
+        <a href="${pageContext.request.contextPath}/registration"><spring:message code="registration"/></a>
     </sec:authorize>
     <sec:authorize access="isAuthenticated()">
 <%--        <a href="${pageContext.request.contextPath}/my_page"><sec:authentication property="principal.login"/></a>--%>

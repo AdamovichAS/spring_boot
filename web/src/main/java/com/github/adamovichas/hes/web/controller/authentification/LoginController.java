@@ -12,12 +12,6 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class LoginController {
 
-    private static final Logger log = LoggerFactory.getLogger(LoginController.class);
-    private final IUserAccountService userAccountService;
-
-    public LoginController(IUserAccountService userAccountService) {
-        this.userAccountService = userAccountService;
-    }
 
     @GetMapping(value = "/login")
     public String loginGetMethod() {

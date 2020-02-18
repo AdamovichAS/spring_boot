@@ -3,6 +3,7 @@ package com.github.adamovichas.hes.web.config;
 import com.github.adamovichas.hes.service.configuration.ServiceConfig;
 import com.github.adamovichas.hes.web.controller.UserAccountController;
 import com.github.adamovichas.hes.web.controller.authentification.LoginController;
+import com.github.adamovichas.hes.web.controller.authentification.RegistrationController;
 import com.github.adamovichas.hes.web.controller.authentification.service.MyUserDetailService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -70,7 +71,11 @@ public class WebConfig {
 
     @Bean
     public LoginController loginController(){
-        return new LoginController(serviceConfig.userAccountService());
+        return new LoginController();
     }
 
+    @Bean
+    public RegistrationController registrationController(){
+        return new RegistrationController(serviceConfig.userAccountService());
+    }
 }
