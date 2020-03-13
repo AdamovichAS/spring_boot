@@ -6,7 +6,7 @@
     <title>$Title$</title>
 </head>
 <body>
-<sec:authorize access="hasRole('ADMIN')">
+<sec:authorize access="hasRole('GRAND_ADMIN')">
     <a href="${pageContext.request.contextPath}/user/new"><spring:message code="user.create"/> </a><br>
 </sec:authorize>
 

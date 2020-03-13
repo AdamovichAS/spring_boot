@@ -29,6 +29,7 @@
     <select name="role">
         <option value="ADMIN"><spring:message code="role.admin"/> </option>
         <option value="USER"><spring:message code="role.user"/> </option>
+        <option value="GRAND_ADMIN"><spring:message code="role.grand_admin"/> </option>
     </select><br>
     <label><spring:message code="user.status"/> </label>
     <select name="status">

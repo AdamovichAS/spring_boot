@@ -36,6 +36,8 @@ public class MyUserDetailService implements UserDetailsService {
                 return Collections.singletonList((GrantedAuthority) () -> "ROLE_USER");
             case ADMIN:
                 return Collections.singletonList((GrantedAuthority) () -> "ROLE_ADMIN");
+            case GRAND_ADMIN:
+                return Collections.singletonList((GrantedAuthority) () -> "ROLE_GRAND_ADMIN");
             default:
                 throw new RuntimeException("Wrong role");
         }

@@ -25,7 +25,7 @@ public class UserAccountController {
         this.userAccountService = userAccountService;
     }
 
-    @GetMapping(value = "")
+    @GetMapping
     public ModelAndView getUsers(HttpServletRequest req){
         final ModelAndView modelAndView = new ModelAndView("main");
         String currentPage = req.getParameter("currentPage");

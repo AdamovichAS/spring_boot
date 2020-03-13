@@ -26,7 +26,12 @@
             <tr>
                     <%--                <td>${user.getUserName()}</td>--%>
                 <td>
-                    <a href="${pageContext.request.contextPath}/user/${user.id}">${user.userName}</a><br>
+                    <sec:authorize access="hasAnyRole('ADMIN','GRAND_ADMIN')">
+                        <a href="${pageContext.request.contextPath}/user/${user.id}">${user.userName}</a><br>
+                    </sec:authorize>
+                    <sec:authorize access="hasRole('USER')">
+                        ${user.userName}<br>
+                    </sec:authorize>
                 </td>
                     <%--                <c:if test="${id eq user.id}">--%>
                     <%--                    <jsp:include page="user_view.jsp"/>--%>

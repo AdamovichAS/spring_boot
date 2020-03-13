@@ -18,11 +18,11 @@
 <div>
     <table class="table table-striped table-bordered table-sm">
         <tr>
-            <sec:authorize access="hasRole('ADMIN')">
+            <sec:authorize access="hasRole('GRAND_ADMIN')">
                 <th><spring:message code="user.id"/> </th>
             </sec:authorize>
             <th><spring:message code="user.name"/> </th>
-            <sec:authorize access="hasRole('ADMIN')">
+            <sec:authorize access="hasRole('GRAND_ADMIN')">
                 <th><spring:message code="password"/> </th>
             </sec:authorize>
             <th><spring:message code="user.first.name"/> </th>
@@ -33,11 +33,11 @@
         </tr>
 
         <tr>
-            <sec:authorize access="hasRole('ADMIN')">
+            <sec:authorize access="hasRole('GRAND_ADMIN')">
                 <th>${user.id} </th>
             </sec:authorize>
             <td>${user.userName}</td>
-            <sec:authorize access="hasRole('ADMIN')">
+            <sec:authorize access="hasRole('GRAND_ADMIN')">
                 <th>${user.password} </th>
             </sec:authorize>
             <td>${user.firstName}</td>
@@ -49,7 +49,7 @@
     </table>
 </div>
 
-<sec:authorize access="hasRole('ADMIN')">
+<sec:authorize access="hasRole('GRAND_ADMIN')">
     <a href="${pageContext.request.contextPath}/user/${user.id}/edit"><spring:message code="edit.user"/> </a><br>
 </sec:authorize>
 </body>

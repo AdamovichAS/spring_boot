@@ -11,6 +11,6 @@
     <title>$Title$</title>
   </head>
   <body>
-  <jsp:forward page="/user/"/>
+  <jsp:forward page="/user"/>
   </body>
 </html>

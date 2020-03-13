@@ -7,6 +7,7 @@ import com.andersenlab.adamovichjr.dao.IUserAccountDao;
 
 import com.andersenlab.adamovichjr.model.AuthUserDto;
 import com.andersenlab.adamovichjr.model.UserAccountDto;
+import org.hibernate.Hibernate;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
@@ -84,7 +85,7 @@ public class UserAccountDao implements IUserAccountDao {
     @Override
     @Transactional(propagation = Propagation.MANDATORY)
     public void editUserAccount(UserAccountDto userAccount) {
-        final UserAccountEntity entity = userAccountRepository.getOne(userAccount.getId());
+        UserAccountEntity entity = userAccountRepository.findById(userAccount.getId()).get();
         entity.setUserName(userAccount.getUserName());
         if(nonNull(userAccount.getPassword())) {
             entity.setPassword(userAccount.getPassword());

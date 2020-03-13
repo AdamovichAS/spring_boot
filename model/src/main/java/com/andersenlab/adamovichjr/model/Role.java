@@ -1,5 +1,5 @@
 package com.andersenlab.adamovichjr.model;
 
 public enum Role {
-    ADMIN,USER
+    ADMIN,USER,GRAND_ADMIN
 }
