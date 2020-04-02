@@ -6,13 +6,14 @@ import org.springframework.boot.context.properties.EnableConfigurationProperties
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
-@Configuration
-//@EnableWebSecurity
-@EnableConfigurationProperties
+
+@EnableWebSecurity
+//@EnableConfigurationProperties
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     private final MyUserDetailService userDetailService;
@@ -33,7 +34,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         http
 
                 .authorizeRequests()
-                .antMatchers(loginPage,"/registration/","/registration").permitAll()
+                .antMatchers(loginPage,"/registration/","/authenticate").permitAll()
                 .antMatchers("/user","/").hasAnyRole("ADMIN","USER","GRAND_ADMIN")
                 .antMatchers("/user/{id}").hasAnyRole("ADMIN","GRAND_ADMIN")
                 .antMatchers("/user/new","/user/{id}/edit").hasAnyRole("GRAND_ADMIN")
